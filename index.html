@@ -1,0 +1,568 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171213">
+<title>Alex God</title>
+
+<style>
+:root {
+  --black: #171213;
+  --eclipse: #3D3837;
+  --night: #242323;
+  --red: #A11A17;
+  --text: #ded8d6;
+  --muted: #a69d9b;
+  --border: #3D3837;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  width: min(1120px, calc(100% - 40px));
+  margin: auto;
+}
+
+/* HEADER */
+
+header {
+  min-height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  color: var(--red);
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  font-style: italic;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+nav a {
+  transition: .25s;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--red);
+}
+
+/* HERO */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 65px;
+  padding: 85px 0 75px;
+}
+
+.eyebrow {
+  color: var(--red);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+h1 {
+  color: var(--text);
+  font-size: clamp(38px, 6vw, 60px);
+  line-height: 1.12;
+  margin: 17px 0 24px;
+  letter-spacing: -2px;
+}
+
+h1 span {
+  color: var(--red);
+}
+
+.intro {
+  max-width: 570px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.intro p {
+  margin-bottom: 16px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 30px;
+}
+
+/* BUTTONS */
+
+.button {
+  display: inline-block;
+  padding: 11px 21px;
+  border: 1px solid var(--red);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 750;
+  transition: .25s;
+}
+
+.button.primary {
+  background: var(--red);
+  color: white;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px #A11A1740;
+}
+
+/* CAT AREA */
+
+.art {
+  min-height: 330px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at center, #A11A1730, transparent 65%),
+    var(--night);
+}
+
+.art::before {
+  content: "✦";
+  position: absolute;
+  top: 35px;
+  left: 40px;
+  font-size: 35px;
+  color: var(--red);
+}
+
+.art::after {
+  content: "✦";
+  position: absolute;
+  right: 40px;
+  bottom: 35px;
+  font-size: 28px;
+  color: var(--red);
+}
+
+.pixel-cat {
+  width: 205px;
+  height: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 10px 20px #000);
+  transition: .3s;
+}
+
+.pixel-cat:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+
+/* SECTIONS */
+
+section {
+  padding: 35px 0 55px;
+}
+
+.section-title {
+  color: var(--text);
+  font-size: 29px;
+  margin-bottom: 27px;
+  letter-spacing: -.7px;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--red);
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+/* CARDS */
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 19px;
+}
+
+.card {
+  background: var(--night);
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 23px;
+  transition: .25s;
+}
+
+.card:hover {
+  border-color: var(--red);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px #0005;
+}
+
+.card h3 {
+  color: var(--text);
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+
+.desc {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* TAGS */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.tag {
+  border: 1px solid var(--red);
+  color: #d88b88;
+  border-radius: 30px;
+  padding: 3px 12px;
+  font-size: 12px;
+  transition: .2s;
+}
+
+.tag:hover {
+  background: var(--red);
+  color: white;
+}
+
+/* PROJECTS */
+
+.project-card {
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-label {
+  color: var(--red);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* CONTACT */
+
+.contact {
+  margin: 30px 0 75px;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background:
+    linear-gradient(110deg, #A11A1725, transparent 75%),
+    var(--night);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.contact h2 {
+  color: var(--text);
+  font-size: 25px;
+  margin-bottom: 7px;
+}
+
+.contact p {
+  color: var(--muted);
+  font-size: 14px;
+  white-space: pre-line;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 25px 0 35px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+footer span {
+  color: var(--red);
+}
+
+/* ANIMATIONS */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero,
+.card,
+.contact {
+  animation: appear .7s ease both;
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+  .page {
+    width: calc(100% - 32px);
+  }
+
+  header {
+    padding: 20px 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    gap: 15px;
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 55px 0 40px;
+  }
+
+  .art {
+    min-height: 250px;
+  }
+
+  .skills {
+    grid-template-columns: 1fr;
+  }
+
+  .contact {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+  }
+
+  .section-title {
+    font-size: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<header>
+  <a class="logo" href="#home">Frostbite Hagenfrost</a>
+
+  <nav aria-label="Main Navigation">
+    <a href="#home">Main</a>
+    <a href="#about" class="active">About Me</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contacts</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div>
+    <div class="eyebrow">About Me</div>
+
+    <h1>Hello, im <span>Alex!</span></h1>
+
+    <div class="intro">
+      <p>I am a creative person who likes to create, explore new ideas and turn ideas into real projects.</p>
+
+      <p>Here I will tell you about myself, my hobbies, goals and what inspires me every day.</p>
+
+      <p>Welcome to my digital space!</p>
+    </div>
+
+    <div class="hero-actions">
+      <a class="button primary" href="#projects">My Projects</a>
+      <a class="button" href="#contact">Contact Me</a>
+    </div>
+  </div>
+
+  <div class="art">
+    <img
+      src="pixel_cat_transparent.png"
+      class="pixel-cat"
+      alt="Pixel Cat"
+    >
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">A little about me</h2>
+
+  <div class="card">
+    <h3>Welcome to my world.</h3>
+    <p class="desc">
+      This is my personal space where I share my interests,
+      creative projects and things I enjoy doing.
+      Feel free to explore!
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="section-title">Skills and interests</h2>
+
+  <div class="skills">
+
+    <article class="card">
+      <h3>My Creativity</h3>
+      <div class="tags">
+        <span class="tag">Design</span>
+        <span class="tag">Drawings</span>
+        <span class="tag">Ideas</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Technologies</h3>
+      <div class="tags">
+        <span class="tag">Programs</span>
+        <span class="tag">Simulators</span>
+        <span class="tag">IT</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Hobbies</h3>
+      <div class="tags">
+        <span class="tag">History</span>
+        <span class="tag">Games</span>
+        <span class="tag">Explorations</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Favourite Projects</h2>
+
+  <div class="skills">
+
+    <article class="card project-card">
+      <div>
+        <div class="project-label">Game Development</div>
+        <h3>QARC: Site-Onega</h3>
+        <p class="desc">
+          My biggest project ever! It's a hard roleplay
+          game that I'm developing for 2 years.
+        </p>
+      </div>
+    </article>
+
+    <article class="card project-card">
+      <div>
+        <div class="project-label">Music</div>
+        <h3>Soundtracks</h3>
+        <p class="desc">
+          I'm creating soundtracks for my games!
+        </p>
+      </div>
+    </article>
+
+    <article class="card project-card">
+      <div>
+        <div class="project-label">Art</div>
+        <h3>Arts</h3>
+        <p class="desc">
+          Also I'm drawing when having some free time.
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<div class="contact" id="contact">
+
+  <div>
+    <h2>Let's Talk!</h2>
+    <p>Contact me on:
+Discord: @frostbitie
+Telegram: @frostbiteck</p>
+  </div>
+
+  <a class="button primary"
+     href="mailto:frostbitie@icloud.com">
+    My Email
+  </a>
+
+</div>
+
+</main>
+
+<footer>
+  © 2026 · Alex God ·
+  <span>All Rights Reserved, do not edit without permission! ♺</span>
+</footer>
+
+</div>
+</body>
+</html>
